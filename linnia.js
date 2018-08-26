@@ -1,7 +1,6 @@
 const Web3 = require('web3');
 const Linnia = require('@linniaprotocol/linnia-js');
 const IPFS = require('ipfs-api');
-import logger from './logger';
 
 // Ganache (local)
 // const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
@@ -22,4 +21,4 @@ const linnia = new Linnia(web3, ipfs, { hubAddress });
 // get the deployed contracts
 //const { _, users, records, permissions } = await linnia.getContractInstances();
 
-export { linnia, ipfs };
+module.exports = { linnia, ipfs };

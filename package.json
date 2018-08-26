@@ -25,9 +25,10 @@
   },
   "dependencies": {
     "@linniaprotocol/linnia-js": "^0.1.4",
-    "ipfs-api": "^24.0.1",
     "body-parser": "^1.18.2",
+    "dotenv": "^6.0.0",
     "express": "^4.16.2",
+    "ipfs-api": "^24.0.1",
     "jquery": "^3.3.1",
     "nodemon": "^1.14.12",
     "openzeppelin-solidity": "^1.12.0"
