@@ -63,6 +63,22 @@ module.exports = {
         callback("Error 404");
     }
   },
+  depositPayout: async function(sender, callback) {
+    var self = this;
+
+    DataPayments.setProvider(self.web3.currentProvider);
+
+    var dataInstance = await DataPayments.deployed();
+
+    try {
+      const result = await dataInstance.depositPayout({from: sender});
+      callback(result.valueOf());
+    }
+    catch (e) {
+        console.log(e);
+        callback("Error 404");
+    }
+  },
   setPayoutGroup: async function(users, weights, sender, callback) {
     var self = this;
 

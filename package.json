@@ -20,17 +20,20 @@
     "css-loader": "^0.26.1",
     "json-loader": "^0.5.4",
     "style-loader": "^0.13.1",
-    "truffle-contract": "^1.1.11",
-    "web3": "^0.20.0"
+    "truffle-contract": "^1.1.11"
   },
   "dependencies": {
     "@linniaprotocol/linnia-js": "^0.1.4",
     "body-parser": "^1.18.2",
     "dotenv": "^6.0.0",
+    "ethers": "^3.0.26",
     "express": "^4.16.2",
     "ipfs-api": "^24.0.1",
+    "ipfs-mini": "^1.1.2",
     "jquery": "^3.3.1",
     "nodemon": "^1.14.12",
-    "openzeppelin-solidity": "^1.12.0"
+    "openzeppelin-solidity": "^1.12.0",
+    "truffle-hdwallet-provider": "0.0.6",
+    "web3": "0.20.1"
   }
 }

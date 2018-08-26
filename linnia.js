@@ -1,12 +1,12 @@
 const Web3 = require('web3');
 const Linnia = require('@linniaprotocol/linnia-js');
-const IPFS = require('ipfs-api');
+const IPFS = require('ipfs-mini');
 
 // Ganache (local)
 // const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
 
 // Ropsten (testnet)
-let web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/' + process.env.ROPSTEN_API_KEY));
+let web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/' + "6d6c8269aa7d4438bc50f06cf0ca4be8"));
 
 const ipfs = new IPFS({
     host: 'ipfs.infura.io',

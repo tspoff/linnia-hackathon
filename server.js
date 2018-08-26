@@ -9,7 +9,7 @@ const Linnia = require('@linniaprotocol/linnia-js');
 const linnia = require('./linnia').linnia;
 const ipfs = require('./linnia').ipfs;
 
-const BASE_ACCOUNT = '0x49C635E0Ef77994cA02bC32197A22822bB685752';
+const BASE_ACCOUNT = '0x44f984f0ad7fbf5db3db5262179decacdfa34dcb';
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -35,17 +35,11 @@ app.get('/register', (req, res) => {
   });
 });
 
-app.get('/setPayoutGroup', (req, res) => {
-  console.log("**** POST /setPayoutGroup ****");
-  // console.log(req.body);
+app.get('/initPayout', (req, res) => {
+  console.log("**** GET /initPayout ****");
+  let sender = BASE_ACCOUNT;
 
-  // let users = req.body.users;
-  // let weights = req.body.weights;
-
-  let users = ['0x49C635E0Ef77994cA02bC32197A22822bB685752', '0xe33a8Cf65463574449E6dfa28275E2DD9A9B0a57', '0x8bF506dDBB7087B56C37a81B72A7489C938af27d'];
-  let weights = [1, 2, 1];
-
-  truffle_connect.setPayoutGroup(users, weights, sender, (answer) => {
+  truffle_connect.depositPayout(sender, (answer) => {
     res.send(answer);
   });
 });
@@ -105,7 +99,8 @@ app.post('/sendCoin', (req, res) => {
 app.listen(port, () => {
 
   // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-  truffle_connect.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+  truffle_connect.web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/' + process.env.INFURA_NODE));
+  // truffle_connect.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
 
   console.log("Express Listening at http://localhost:" + port);
 
