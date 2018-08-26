@@ -1,102 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>MetaCoin - Truffle Webpack Demo w/ Frontend & Express</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!-- Bootstrap css-->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- bootstrap javascript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link href="stylesheets/app.css" rel="stylesheet">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- Imports -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="index_files/jumbotron.css" rel="stylesheet">
+  </head>
 
-    <style>
-        #options{
-            height: 40px;
-            width: 90%;
-            font-size: 1.2em;
-        }
-        #selecttag{
-            font-size: 1.7em;
-        }
-        #submit{
-          width: 20%;
-          display: block;
-          margin: 20px auto;
-        }
-        .select, .send, #all-accounts{
-            display: none;
-        }
-        .active{
-            display: block !important;
-        }
-    </style>
-</head>
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <div class="select active">
-            <h1>MetaCoin</h1>
-            <h2>Example Truffle DApp</h2>
-            <br>
-            <h3 id="selecttag">Select Your Account</h3>
-            <select id="options" name="cars" class="form-control">
-            </select>
-            <button id="submit" class="btn btn-primary">SUBMIT</button>
-            <div class="hint"><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</div>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">DeBroker</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        </div>
+      <div class="collapse navbar-collapse" id="nav_elements">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Payout History</a>
+          </li>
+        </ul>
       </div>
-      <div class="col-md-10 col-md-offset-1">
-        <div class="send">
-            <h1>MetaCoin</h1>
-            <h2>Example Truffle Dapp</h2>
-            <h3>You have <span class="black"><span id="balance"></span> META</span></h3>
-            <h3>Your Account <span class="black" id="account"></span></h3>
+    </nav>
 
-            <br>
-            <h1>Send MetaCoin</h1>
-            <div class="row">
-              <div>
-                <div class="col-md-12">
-                <br><label for="amount">Amount:</label><input type="number" id="amount" class="form-control" placeholder="e.g., 95" required></input>
-                <br><label for="receiver">To Address:</label><input type="text" id="receiver" class="form-control" placeholder="copy and paste from the list of active accounts below" required></input>
-                </div>
-                <div class="col-md-4 col-md-offset-4">
-                  <br><br><button class="btn btn-primary" id="send">Send MetaCoin</button>
-                </div>
+    <main role="main">
 
-
-
-                <br><br>
-                <span id="status"></span>
-              </div>
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h2>
+            Your Data
+            <button class="btn btn-primary btn-sm" type="button" data-toggle="collapse" data-target="#collapse_data" aria-expanded="false" aria-controls="collapse_data">
+              Show
+            </button>
+          </h2>
+            <div class="collapse" id="collapse_data">
+              <p>data:text/plain;charset=utf-8;base64,aHR0cHM6Ly9naXRodWIuY29tL2dvZGZyZXlob2Jicy9oY19zdHVkeQ==</p>
+              <p>data:text/plain;charset=utf-8;base64,aHR0cHM6Ly93d3cudzNzY2hvb2xzLmNvbS9ib290c3RyYXAvYm9vdHN0cmFwX2dldF9zdGFydGVkLmFzcA==</p>
+              <p>data:text/plain;charset=utf-8;base64,aHR0cHM6Ly9naXRodWIuY29tL0NvbnNlblN5cy9saW5uaWEtcmVzb3VyY2VzL2Jsb2IvbWFzdGVyL0dFVFRJTkdfU1RBUlRFRC5tZA==</p>
+              <p>data:text/plain;charset=utf-8;base64,aHR0cHM6Ly9nZXRib290c3RyYXAuY29tL2RvY3MvMy4zL2dldHRpbmctc3RhcnRlZC8=</p>
+              <p>data:text/plain;charset=utf-8;base64,aHR0cHM6Ly9kb3BpYXphLm9yZy90b29scy9kYXRhdXJpL2luZGV4LnBocA==</p>
+              <p>data:text/plain;charset=utf-8;base64,ZmlsZTovLy9DOi9Vc2Vycy9Kb2FuZXR0ZS9naXQvY3BUaW4vbGluaGFjay9pbmRleC5odG1s</p>
+              <p>data:text/plain;charset=utf-8;base64,aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMTg2NzI0NTIvbGVmdC1hbGlnbi1hbmQtcmlnaHQtYWxpZ24td2l0aGluLWRpdi1pbi1ib290c3RyYXA=</p>
             </div>
-
-
-            <br>
-            <div class="hint"><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</div>
-        </div>
-      </div>
-      <div class="col-md-10 col-md-offset-1">
-        <div id="all-accounts">
-          <h3>Accounts on the chain you can send MetaCoin to:</h3>
-          <ol>
-
-          </ol>
         </div>
       </div>
 
-    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h4>Enter Your Private Key</h4>
+            <input type="text" class="form-control" id="usr">
+          </div>
+          <div class="col-md-12">
+            <hr>
+            <h5>Choose Data Brokers You Wish to Sell To</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="google_check">
+              <label class="form-check-label" for="google_check">
+                Google
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="facebook_check">
+              <label class="form-check-label" for="facebook_check">
+                Facebook
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="advertizers_check">
+              <label class="form-check-label" for="advertizers_check">
+                Advertizers
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="brokerboys_check">
+              <label class="form-check-label" for="brokerboys_check">
+                BrokerBoys
+              </label>
+            </div>
+            <hr>
+            <div class="col-md-12">
+              <p><a class="btn btn-primary btn-med" href="#" role="button">Sell Data</a></p>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+
+    </main>
+
+    <footer class="container">
+      <p>© Debroker 2018</p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="index_files/jquery-3.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="index_files/popper.js"></script>
+    <script src="index_files/bootstrap.js"></script>
 
 
-
-  </div>
-
-
-    <script src="javascript/accounts.js"></script>
-</body>
-</html>
+</body></html>
